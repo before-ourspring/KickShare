@@ -5,7 +5,7 @@
     android:background="@drawable/ks_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ajou.kickshare.MainActivity">
+    tools:context="com.ajou.kickshare.main.MainActivity">
 
     <TextView
         android:id="@+id/tv_start_label"

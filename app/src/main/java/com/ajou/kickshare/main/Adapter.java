@@ -1,4 +1,4 @@
-package com.ajou.kickshare;
+package com.ajou.kickshare.main;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.ajou.kickshare.R;
 
 import java.util.ArrayList;
 

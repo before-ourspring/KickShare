@@ -1,4 +1,4 @@
-package com.ajou.kickshare;
+package com.ajou.kickshare.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.TextView;
+
+import com.ajou.kickshare.R;
 
 public class MainActivity extends AppCompatActivity {
 

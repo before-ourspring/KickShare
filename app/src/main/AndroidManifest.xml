@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ServiceActivity"></activity>
-        <activity android:name=".MethodActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".service.ServiceActivity" />
+        <activity android:name=".main.MethodActivity" />
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
