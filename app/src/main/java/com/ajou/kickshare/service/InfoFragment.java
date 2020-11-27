@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ajou.kickshare.R;
 
@@ -34,7 +36,16 @@ public class InfoFragment extends Fragment {
 
         TextView mPhoneNumber = (TextView) view.findViewById(R.id.info_tv_phoneNumber);
         mPhoneNumber.setText(phoneNumber);
-        System.out.println("hello"+phoneNumber);
+        // System.out.println("hello"+phoneNumber);
+
+        Button mChargeButton = view.findViewById(R.id.info_btn_charge);
+        mChargeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "충전하기", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return view;
     }
 }

@@ -2,6 +2,7 @@ package com.ajou.kickshare.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText mEditNumber;
     private Button mLoginButton;
+
+    public ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("PhoneNumber", phoneNumber); // key, value 이용하여 저장
                 editor.apply(); // 최종 커밋
 
-                System.out.println("hello1" + phoneNumber);
+                showProgressDialog();
+                // System.out.println("hello1" + phoneNumber);
 
                 Intent intent = new Intent(LoginActivity.this, ServiceActivity.class);
                 startActivity(intent);
@@ -48,5 +52,21 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
+    }
+
+    public void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
     }
 }
