@@ -19,15 +19,17 @@ import java.util.ArrayList;
 
 public class MethodActivity extends AppCompatActivity {
 
+    public static MethodActivity _MethodActivity;
     private ArrayList<Integer> imageList;
     private static final int DP = 24;
-
-    Button btn_start;
+    private Button mStartButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_method);
+
+        _MethodActivity = MethodActivity.this;
 
         this.initializeData();
 
@@ -44,21 +46,21 @@ public class MethodActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager, true);
 
-        btn_start = findViewById(R.id.btn_start);
+        mStartButton = findViewById(R.id.btn_start);
 
         Animation mAnimation = new AlphaAnimation(1, 0);
         mAnimation.setDuration(800);
         mAnimation.setInterpolator(new AccelerateInterpolator());
         mAnimation.setRepeatCount(Animation.INFINITE);
         mAnimation.setRepeatMode(Animation.REVERSE);
-        btn_start.startAnimation(mAnimation);
 
-        btn_start.setOnClickListener(new View.OnClickListener() {
+        mStartButton.startAnimation(mAnimation);
+
+        mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MethodActivity.this, ServiceActivity.class);
+                Intent intent = new Intent(MethodActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

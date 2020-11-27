@@ -2,6 +2,7 @@ package com.ajou.kickshare.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -14,14 +15,17 @@ import com.ajou.kickshare.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txt_startLabel;
+    public static Activity _MainActivity;
+    private TextView mStartLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txt_startLabel = findViewById(R.id.tv_start_label);
+        _MainActivity = MainActivity.this;
+
+        mStartLabel = findViewById(R.id.tv_start_label);
 
         Animation mAnimation = new AlphaAnimation(1, 0);
         mAnimation.setDuration(700);
@@ -29,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mAnimation.setRepeatCount(Animation.INFINITE);
         mAnimation.setRepeatMode(Animation.REVERSE);
 
-        txt_startLabel.startAnimation(mAnimation);
+        mStartLabel.startAnimation(mAnimation);
     }
 
     @Override
@@ -39,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         if (action == MotionEvent.ACTION_DOWN) {
             Intent intent = new Intent(getApplicationContext(), MethodActivity.class);
             startActivity(intent);
-            finish();
         }
         return super.onTouchEvent(event);
     }

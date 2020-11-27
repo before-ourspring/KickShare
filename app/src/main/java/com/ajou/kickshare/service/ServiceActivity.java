@@ -40,7 +40,6 @@ public class ServiceActivity extends AppCompatActivity {
             switch(item.getItemId()) {
                 case R.id.menu_home:
                     transaction.replace(R.id.service_frame_layout, homeFragment).commitAllowingStateLoss();
-
                     break;
                 case R.id.menu_help:
                     transaction.replace(R.id.service_frame_layout, helpFragment).commitAllowingStateLoss();
