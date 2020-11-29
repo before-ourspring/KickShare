@@ -17,9 +17,9 @@ public class ServiceActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
-    private HomeFragment homeFragment = new HomeFragment();
+    private RentFragment rentFragment = new RentFragment();
     private HelpFragment helpFragment = new HelpFragment();
-    private InfoFragment infoFragment = new InfoFragment();
+    private HomeFragment homeFragment = new HomeFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,11 @@ public class ServiceActivity extends AppCompatActivity {
                 case R.id.menu_home:
                     transaction.replace(R.id.service_frame_layout, homeFragment).commitAllowingStateLoss();
                     break;
+                case R.id.menu_rent:
+                    transaction.replace(R.id.service_frame_layout, rentFragment).commitAllowingStateLoss();
+                    break;
                 case R.id.menu_help:
                     transaction.replace(R.id.service_frame_layout, helpFragment).commitAllowingStateLoss();
-                    break;
-                case R.id.menu_my:
-                    transaction.replace(R.id.service_frame_layout, infoFragment).commitAllowingStateLoss();
                     break;
             }
             return true;

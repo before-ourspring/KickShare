@@ -1,46 +1,51 @@
 package com.ajou.kickshare.service;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ajou.kickshare.R;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
-public class HomeFragment extends Fragment implements OnMapReadyCallback {
+import static android.content.Context.MODE_PRIVATE;
 
-    private MapView mapView = null;
+public class HomeFragment extends Fragment {
+
+    String phoneNumber;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("UserInfo", MODE_PRIVATE);
+        phoneNumber = sharedPreferences.getString("PhoneNumber", "no");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        mapView = (MapView) view.findViewById(R.id.map);
-        mapView.onCreate(savedInstanceState);
-        mapView.onResume();
-        mapView.getMapAsync(this);
+        TextView mPhoneNumber = (TextView) view.findViewById(R.id.info_tv_phoneNumber);
+        mPhoneNumber.setText(phoneNumber);
+        // System.out.println("hello"+phoneNumber);
+
+        Button mChargeButton = view.findViewById(R.id.info_btn_charge);
+        mChargeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "충전하기", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        // 아주대학교 37.2833633, 127.0443218
-        // 도서관 37.2814443, 127.0441587
-        LatLng ajouUniv = new LatLng(37.2814443, 127.0441587);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(ajouUniv));
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(17)); // 확대
-        MarkerOptions markerOptions = new MarkerOptions().position(ajouUniv).title("아주대학교 중앙도서관");
-        googleMap.addMarker(markerOptions);
     }
 }

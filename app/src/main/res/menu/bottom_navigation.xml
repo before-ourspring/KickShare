@@ -5,12 +5,12 @@
         android:icon="@drawable/icon_home"
         android:title="홈"
         app:color="@color/navigation_color_home"/>
+    <item android:id="@+id/menu_rent"
+        android:icon="@drawable/icon_rent"
+        android:title="렌트하기"
+        app:color="@color/navigation_color_help"/>
     <item android:id="@+id/menu_help"
         android:icon="@drawable/icon_help"
         android:title="지원"
         app:color="@color/navigation_color_help"/>
-    <item android:id="@+id/menu_my"
-        android:icon="@drawable/icon_my"
-        android:title="내 정보"
-        app:color="@color/navigation_color_my"/>
 </menu>
