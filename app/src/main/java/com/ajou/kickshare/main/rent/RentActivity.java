@@ -1,4 +1,4 @@
-package com.ajou.kickshare.main;
+package com.ajou.kickshare.main.rent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,16 +8,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ajou.kickshare.R;
-import com.ajou.kickshare.service.MapActivity;
 
-public class MenuActivity extends AppCompatActivity {
+public class RentActivity extends AppCompatActivity {
 
     private Button mPointButton, mMapButton, mQRButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_rent);
 
         mPointButton = findViewById(R.id.menu_btn_point);
         mPointButton.setOnClickListener(new View.OnClickListener() {

@@ -1,4 +1,4 @@
-package com.ajou.kickshare.service;
+package com.ajou.kickshare.main.rent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
 import com.ajou.kickshare.R;
+import com.ajou.kickshare.service.EventActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -46,8 +47,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
 
-        LatLng ajouEntrance = new LatLng(37.2800147,127.0436415);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(ajouEntrance));
+        LatLng startPoint = new LatLng(37.2814443, 127.0441587);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(startPoint));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(17)); // 확대
 
         mMap.addMarker(markerOptions.title("아주대학교 정문").position(new LatLng(37.2800147,127.0436415)));

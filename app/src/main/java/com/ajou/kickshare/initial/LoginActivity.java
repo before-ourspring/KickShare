@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.ajou.kickshare.R;
+import com.ajou.kickshare.main.AdminActivity;
 import com.ajou.kickshare.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -45,11 +46,20 @@ public class LoginActivity extends AppCompatActivity {
                 showProgressDialog();
                 // System.out.println("hello1" + phoneNumber);
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                firstActivity.finish();
-                methodActivity.finish();
-                finish();
+                if (phoneNumber.equals("01000000000")) { // 관리자 계정
+                    Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                    startActivity(intent);
+                    firstActivity.finish();
+                    methodActivity.finish();
+                    finish();
+                }
+                else { // 고객
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    firstActivity.finish();
+                    methodActivity.finish();
+                    finish();
+                }
             }
         });
     }

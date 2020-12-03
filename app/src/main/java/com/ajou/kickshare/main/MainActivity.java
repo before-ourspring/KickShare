@@ -11,8 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ajou.kickshare.R;
-import com.ajou.kickshare.initial.MethodActivity;
-import com.ajou.kickshare.service.HelpActivity;
+import com.ajou.kickshare.main.rent.RentActivity;
+import com.ajou.kickshare.main.help.HelpActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mRentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RentActivity.class);
                 startActivity(intent);
             }
         });
