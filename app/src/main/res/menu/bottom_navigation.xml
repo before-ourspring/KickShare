@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_home"
-        android:icon="@drawable/icon_home"
+        android:icon="@drawable/img_home"
         android:title="홈"
         app:color="@color/navigation_color_home"/>
     <item android:id="@+id/menu_rent"

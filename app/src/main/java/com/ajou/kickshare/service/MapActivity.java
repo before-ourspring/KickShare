@@ -1,48 +1,40 @@
 package com.ajou.kickshare.service;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.ajou.kickshare.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import static android.content.Context.MODE_PRIVATE;
-
-public class RentFragment extends Fragment implements OnMapReadyCallback {
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private MapView mapView = null;
     private GoogleMap mMap;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_rent, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_map);
 
-        mapView = (MapView) view.findViewById(R.id.map);
-        mapView.onCreate(savedInstanceState);
-        mapView.onResume();
-        mapView.getMapAsync(this);
-
-        return view;
+        // SupportMapFragment을 통해 레이아웃에 만든 fragment의 ID를 참조하고 구글맵을 호출한다.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this); //getMapAsync must be called on the main thread.
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -90,14 +82,14 @@ public class RentFragment extends Fragment implements OnMapReadyCallback {
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("StationName", MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getSharedPreferences("StationName", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 String stationName = marker.getTitle();
                 editor.putString("StationName", stationName); // key, value 이용하여 저장
                 editor.apply(); // 최종 커밋
 
 //                Toast.makeText(getActivity(), stationName, Toast.LENGTH_SHORT).show();
-                getActivity().startActivity(new Intent(getActivity(), EventActivity.class));
+                Intent intent = new Intent(getApplicationContext(), EventActivity.class);
             }
         });
     }

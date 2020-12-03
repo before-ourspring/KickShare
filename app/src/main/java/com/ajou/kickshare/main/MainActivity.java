@@ -2,48 +2,67 @@ package com.ajou.kickshare.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ajou.kickshare.R;
+import com.ajou.kickshare.initial.MethodActivity;
+import com.ajou.kickshare.service.HelpActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static Activity _MainActivity;
-    private TextView mStartLabel;
+    String phoneNumber;
+    private Button mRentButton, mReturnButton, mHelpButton, mInfoButton;
+    private TextView mPhoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        _MainActivity = MainActivity.this;
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
+        phoneNumber = sharedPreferences.getString("PhoneNumber", "no");
 
-        mStartLabel = findViewById(R.id.tv_start_label);
+        mPhoneNumber = findViewById(R.id.main_tv_phoneNumber);
+        mPhoneNumber.setText(phoneNumber);
 
-        Animation mAnimation = new AlphaAnimation(1, 0);
-        mAnimation.setDuration(700);
-        mAnimation.setInterpolator(new AccelerateInterpolator());
-        mAnimation.setRepeatCount(Animation.INFINITE);
-        mAnimation.setRepeatMode(Animation.REVERSE);
+        mRentButton = findViewById(R.id.main_btn_rent);
+        mRentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        mStartLabel.startAnimation(mAnimation);
-    }
+        mReturnButton = findViewById(R.id.main_btn_return);
+        mReturnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "반납", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        int action = event.getAction();
+        mHelpButton = findViewById(R.id.main_btn_help);
+        mHelpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        if (action == MotionEvent.ACTION_DOWN) {
-            Intent intent = new Intent(getApplicationContext(), MethodActivity.class);
-            startActivity(intent);
-        }
-        return super.onTouchEvent(event);
+        mInfoButton = findViewById(R.id.main_btn_myinfo);
+        mInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "내 정보 관리", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -1,4 +1,4 @@
-package com.ajou.kickshare.main;
+package com.ajou.kickshare.initial;
 
 import android.content.Context;
 import android.view.LayoutInflater;

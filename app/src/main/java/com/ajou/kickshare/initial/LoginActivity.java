@@ -1,4 +1,4 @@
-package com.ajou.kickshare.main;
+package com.ajou.kickshare.initial;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,11 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.ajou.kickshare.R;
-import com.ajou.kickshare.service.ServiceActivity;
+import com.ajou.kickshare.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    MainActivity mainActivity = (MainActivity) MainActivity._MainActivity;
+    FirstActivity firstActivity = (FirstActivity) FirstActivity._MainActivity;
     MethodActivity methodActivity = (MethodActivity) MethodActivity._MethodActivity;
 
     private EditText mEditNumber;
@@ -45,9 +45,9 @@ public class LoginActivity extends AppCompatActivity {
                 showProgressDialog();
                 // System.out.println("hello1" + phoneNumber);
 
-                Intent intent = new Intent(LoginActivity.this, ServiceActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
-                mainActivity.finish();
+                firstActivity.finish();
                 methodActivity.finish();
                 finish();
             }

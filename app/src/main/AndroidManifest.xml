@@ -12,16 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".service.EventActivity"></activity>
-        <activity android:name=".main.LoginActivity" />
+        <activity android:name=".service.QrActivity"></activity>
+        <activity android:name=".service.MapActivity" />
+        <activity android:name=".service.PointActivity" />
+        <activity android:name=".service.HelpActivity" />
+        <activity android:name=".main.MenuActivity" />
+        <activity android:name=".main.MainActivity" />
+        <activity android:name=".service.EventActivity" />
+        <activity android:name=".initial.LoginActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBe92JyJrJ0PZlK7vbMIZwGHaLT3EAR-5U" />
-
-        <activity android:name=".service.ServiceActivity" />
-        <activity android:name=".main.MethodActivity" />
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".initial.MethodActivity" />
+        <activity android:name=".initial.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

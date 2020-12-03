@@ -1,4 +1,4 @@
-package com.ajou.kickshare.main;
+package com.ajou.kickshare.initial;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -12,7 +12,6 @@ import android.view.animation.Animation;
 import android.widget.Button;
 
 import com.ajou.kickshare.R;
-import com.ajou.kickshare.service.ServiceActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
