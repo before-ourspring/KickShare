@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.ajou.kickshare.R;
 import com.ajou.kickshare.service.EventActivity;
@@ -25,6 +26,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     private MapView mapView = null;
     private GoogleMap mMap;
+    private TextView mKickshare;
+    static int availableKickshare = 30;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // SupportMapFragment을 통해 레이아웃에 만든 fragment의 ID를 참조하고 구글맵을 호출한다.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this); //getMapAsync must be called on the main thread.
+
+        mKickshare = findViewById(R.id.map_tv_available);
+        String availableKS = Integer.toString(availableKickshare);
+        mKickshare.setText(availableKS);
     }
 
 

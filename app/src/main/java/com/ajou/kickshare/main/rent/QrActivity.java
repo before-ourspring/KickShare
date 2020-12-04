@@ -34,10 +34,13 @@ public class QrActivity extends AppCompatActivity {
         if(result != null) {
             if(result.getContents() == null) {
                 Toast.makeText(this, "취소되었습니다", Toast.LENGTH_LONG).show();
+                finish();
             } else {
-                Toast.makeText(this, "인식되었습니다", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "인식되었습니다", Toast.LENGTH_LONG).show();
                 rentSuccessDialog = new RentSuccessDialog(this, mOkListnerBtn, mExitListenerBtn, "00:00");
                 rentSuccessDialog.show();
+                rentSuccessDialog.setCancelable(false);
+                MapActivity.availableKickshare--;
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
