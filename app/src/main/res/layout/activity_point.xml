@@ -8,10 +8,20 @@
     tools:context=".main.rent.PointActivity">
 
     <ImageView
+        android:id="@+id/point_img_back"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:src="@drawable/icon_back" />
+
+    <ImageView
         android:id="@+id/point_img_kickshare"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:src="@drawable/icon_kickshare" />
@@ -25,15 +35,15 @@
         android:src="@drawable/img_point" />
 
     <FrameLayout
-    style="?android:attr/borderlessButtonStyle"
-    android:layout_marginVertical="20dp"
-    android:layout_marginHorizontal="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:layout_below="@+id/point_img_login"
-    android:background="@drawable/button2" >
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/point_img_login"
+        android:background="@drawable/button2" >
 
-    <RelativeLayout
+        <RelativeLayout
         android:id="@+id/point_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -105,5 +115,6 @@
 
         </LinearLayout>
     </RelativeLayout>
-</FrameLayout>
+
+    </FrameLayout>
 </RelativeLayout>

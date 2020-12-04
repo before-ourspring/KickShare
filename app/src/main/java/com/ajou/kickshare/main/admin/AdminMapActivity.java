@@ -1,4 +1,4 @@
-package com.ajou.kickshare.main.rent;
+package com.ajou.kickshare.main.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,13 +8,10 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.ajou.kickshare.R;
-import com.ajou.kickshare.main.admin.CheckKickboard;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -24,28 +21,20 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class AdminMapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private MapView mapView = null;
     private GoogleMap mMap;
-    private TextView mKickshare;
     private FloatingActionButton mBackBtn;
-    static int availableKickshare = 30;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.activity_admin_map);
 
-        // SupportMapFragment을 통해 레이아웃에 만든 fragment의 ID를 참조하고 구글맵을 호출한다.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.admin_map);
         mapFragment.getMapAsync(this); //getMapAsync must be called on the main thread.
 
-        mKickshare = findViewById(R.id.map_tv_available);
-        String availableKS = Integer.toString(availableKickshare);
-        mKickshare.setText(availableKS);
-
-        mBackBtn = findViewById(R.id.map_btn_back);
+        mBackBtn = findViewById(R.id.admin_map_btn_back);
         mBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +42,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
     }
-
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -109,6 +97,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 //                Toast.makeText(getActivity(), stationName, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), CheckKickboard.class);
+                startActivity(intent);
             }
         });
     }

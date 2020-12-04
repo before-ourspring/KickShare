@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.admin.CheckUser">
+
+    <ImageView
+        android:id="@+id/check_user_img_back"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:src="@drawable/icon_back" />
+
+    <ImageView
+        android:id="@+id/check_user_img_kickshare"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:src="@drawable/icon_kickshare" />
+
+    <ImageView
+        android:id="@+id/check_user_img"
+        android:layout_centerInParent="true"
+        android:layout_width="210dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/check_user_img_kickshare"
+        android:src="@drawable/img_checkuser" />
+
+
+
+</RelativeLayout>

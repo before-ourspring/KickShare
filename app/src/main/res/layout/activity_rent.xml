@@ -8,10 +8,20 @@
     tools:context=".main.rent.RentActivity">
 
     <ImageView
+        android:id="@+id/rent_user_img_back"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:src="@drawable/icon_back" />
+
+    <ImageView
         android:id="@+id/menu_img_kickshare"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:src="@drawable/icon_kickshare" />

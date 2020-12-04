@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.ajou.kickshare.R;
 
 public class RentActivity extends AppCompatActivity {
 
     private Button mPointButton, mMapButton, mQRButton;
+    private ImageView mCloseBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,14 @@ public class RentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QrActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        mCloseBtn = findViewById(R.id.rent_user_img_back);
+        mCloseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

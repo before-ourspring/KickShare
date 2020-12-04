@@ -15,14 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.AdminActivity" />
+        <activity android:name=".main.admin.CheckUser"></activity>
+        <activity android:name=".main.admin.CheckKickboard" />
+        <activity android:name=".main.admin.AdminMapActivity" />
+        <activity android:name=".main.admin.AdminActivity" />
         <activity android:name=".main.rent.QrActivity" />
         <activity android:name=".main.rent.MapActivity" />
         <activity android:name=".main.rent.PointActivity" />
         <activity android:name=".main.help.HelpActivity" />
         <activity android:name=".main.rent.RentActivity" />
         <activity android:name=".main.MainActivity" />
-        <activity android:name=".service.EventActivity" />
         <activity android:name=".initial.LoginActivity" />
 
         <meta-data

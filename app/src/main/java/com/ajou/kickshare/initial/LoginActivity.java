@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.ajou.kickshare.R;
-import com.ajou.kickshare.main.AdminActivity;
+import com.ajou.kickshare.main.admin.AdminActivity;
 import com.ajou.kickshare.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
