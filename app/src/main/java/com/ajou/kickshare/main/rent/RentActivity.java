@@ -39,7 +39,8 @@ public class RentActivity extends AppCompatActivity {
         mQRButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), QrActivity.class);
+                startActivity(intent);
             }
         });
     }
