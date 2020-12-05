@@ -6,9 +6,9 @@ public class AdapterList extends AbstractFactory{
     @Override
     public AbstractAdapter createAdapter(String name){
         switch (name) {
-            case "ExternalDB" : return new ExternalDBAdapter();
-            case "KickBoardInfo" : return new KickboardConnectAdaptor();
-            case "EnternalDB" : return new EnternalDBAdapter();
+            case "ExternalDBAdaptor" : return new ExternalDBAdapter();
+            case "kickBoardConnectAdaptor" : return new KickboardConnectAdaptor();
+            case "internalDBAdaptor" : return new InternalDBAdapter();
         }
         return null;
     };

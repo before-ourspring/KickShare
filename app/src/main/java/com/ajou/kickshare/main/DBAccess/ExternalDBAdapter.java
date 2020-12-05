@@ -11,7 +11,7 @@ public class ExternalDBAdapter extends AbstractAdapter implements Serializable {
     private static ArrayList<KickBoardInfo> kbIfArrayList = new ArrayList<>();
 
     public String getName(){
-        return "ExternalDB";
+        return "ExternalDBAdaptor";
     }
 
     public boolean checkKickBoardID(int id){

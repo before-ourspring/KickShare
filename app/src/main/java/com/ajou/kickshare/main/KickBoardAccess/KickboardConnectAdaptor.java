@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class KickboardConnectAdaptor extends AbstractAdapter {
     public String getName(){
-        return "KickBoardInfo";
+        return "kickBoardConnectAdaptor";
     }
     public KickBoardInfo getKickBoardInfo(int kickBoardID, ArrayList<KickBoardInfo> kickBoardInfos){
 

@@ -22,7 +22,7 @@ public class RentActivity extends AppCompatActivity {
     private Button mPointButton, mMapButton, mQRButton;
     private ImageView mCloseBtn;
     private AdapterList abFactory = new AdapterList();
-    private ExternalDBAdapter externalDBAdapter = (ExternalDBAdapter) abFactory.createAdapter("ExternalDB");;
+    private ExternalDBAdapter externalDBAdapter = (ExternalDBAdapter) abFactory.createAdapter("ExternalDBAdaptor");;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

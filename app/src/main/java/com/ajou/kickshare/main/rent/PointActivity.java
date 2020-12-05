@@ -8,6 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ajou.kickshare.R;
+import com.ajou.kickshare.main.DBAccess.AdapterList;
+import com.ajou.kickshare.main.DBAccess.ExternalDBAdapter;
+import com.ajou.kickshare.main.FareCalculation.FareCalculator;
+import com.ajou.kickshare.main.FareCalculation.TotalStrategy;
 
 import static com.ajou.kickshare.main.rent.QrActivity.usingStatus;
 
@@ -18,6 +22,8 @@ public class PointActivity extends AppCompatActivity {
     private TextView mRemainPoint, mUsingPoint;
     static int remain, using;
     String stRemain, stUsing;
+    private FareCalculator fareCalculator = new FareCalculator();
+    private TotalStrategy totalStrategy = (TotalStrategy) fareCalculator.createCalculator("Student");;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +39,13 @@ public class PointActivity extends AppCompatActivity {
         });
 
         mRemainPoint = findViewById(R.id.point_tv_point);
-        stRemain = Integer.toString(remain);
+        stRemain = Integer.toString(totalStrategy.getFareStrategy(5));
         mRemainPoint.setText(stRemain);
 
         mUsingPoint = findViewById(R.id.point_tv_pointUsing);
         stUsing = Integer.toString(using);
         mUsingPoint.setText(stUsing);
-
+        
         mUsing = findViewById(R.id.point_img_using);
         if (usingStatus = true) {
             mUsing.setVisibility(View.VISIBLE);
