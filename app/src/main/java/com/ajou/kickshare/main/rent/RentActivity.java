@@ -66,7 +66,7 @@ public class RentActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), QrActivity.class);
                 ExternalDBAdapter enDB = externalDBAdapter;
                 intent.putExtra("DB", enDB);
-                startActivity(intent);
+                startActivityForResult(intent, 1234);
 
             }
         });
