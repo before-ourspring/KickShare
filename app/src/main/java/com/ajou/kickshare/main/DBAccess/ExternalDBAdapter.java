@@ -18,6 +18,7 @@ public class ExternalDBAdapter extends AbstractAdapter implements Serializable {
         for(int i = 0; i < kbIfArrayList.size(); i++){
             if(kbIfArrayList.get(i).getKickBoardID() == id){
                 if(kbIfArrayList.get(i).getStatus()){
+                    kbIfArrayList.get(i).setStatus(false);
                     return true;
                 } else{
                     return false;
