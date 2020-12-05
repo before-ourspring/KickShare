@@ -37,7 +37,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private TextView mKickshare;
     private FloatingActionButton mBackBtn;
-    static int availableKickshare = 30;
+    static int availableKickshare = 18;
     private ArrayList<KickBoardInfo> KbIf = new ArrayList<>();
 
     @Override

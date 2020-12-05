@@ -54,7 +54,7 @@
             android:textSize="13sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:text="잔여 포인트 확인" />
+            android:text="포인트 확인" />
 
         <Button
             android:id="@+id/menu_btn_map"
