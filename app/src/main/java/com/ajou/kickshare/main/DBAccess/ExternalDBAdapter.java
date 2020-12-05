@@ -73,7 +73,7 @@ public class ExternalDBAdapter extends AdapterList{
 
 
         for (int i = 0; i < kbLocationListX.size(); i++) {
-            KickBoardInfo kbIf = new KickBoardInfo(i, true, 100, kbLocationListX.get(0), kbLocationListY.get(0));
+            KickBoardInfo kbIf = new KickBoardInfo(i, true, 100, kbLocationListX.get(i), kbLocationListY.get(i));
             kbIfArrayList.add(kbIf);
         }
 

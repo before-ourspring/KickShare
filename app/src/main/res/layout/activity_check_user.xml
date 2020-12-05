@@ -49,25 +49,25 @@
             android:layout_marginHorizontal="5dp">
 
             <TextView
-                android:id="@+id/check_user_tv_station"
+                android:id="@+id/check_user_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:layout_marginVertical="5dp"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
-                android:text="정류장 이름" />
+                android:text="사용자 ID" />
 
             <LinearLayout
-                android:layout_below="@+id/check_user_tv_station"
-                android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="15dp"
+                android:layout_toEndOf="@+id/check_user_tv"
+                android:layout_marginHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
 
                 <Button
-                    android:id="@+id/check_user_btn_rent"
+                    android:id="@+id/check_user_btn_request"
                     android:background="@drawable/button_circle"
                     android:layout_weight="1"
                     android:layout_width="100dp"
@@ -76,10 +76,10 @@
                     android:textSize="13sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
-                    android:text="대여하기" />
+                    android:text="반환 요청" />
 
                 <Button
-                    android:id="@+id/check_user_btn_return"
+                    android:id="@+id/check_user_btn_stop"
                     android:background="@drawable/button_circle"
                     android:layout_weight="1"
                     android:layout_width="100dp"
@@ -88,7 +88,7 @@
                     android:textSize="13sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
-                    android:text="반납하기" />
+                    android:text="사용 중지" />
 
             </LinearLayout>
 
