@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ajou.kickshare.R;
+import com.ajou.kickshare.main.DBAccess.AbstractFactory;
+import com.ajou.kickshare.main.Distribution.KickBoardInfo;
 import com.ajou.kickshare.main.admin.CheckKickboard;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,6 +25,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -68,6 +72,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         LatLng startPoint = new LatLng(37.2814443, 127.0441587);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(startPoint));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(17)); // 확대
+
+//        AbstractFactory abFactory = null;
+//        ArrayList<KickBoardInfo> kickBoardInfos = new ArrayList<>();
+//        kickBoardInfos = abFactory.getEnternalDBAdapter().getKickBoardList();
 
         mMap.addMarker(markerOptions.title("아주대학교 정문").position(new LatLng(37.2800147,127.0436415)));
         mMap.addMarker(markerOptions.title("도서관").position(new LatLng(37.2814443, 127.0441587)));
