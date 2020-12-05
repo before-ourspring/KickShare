@@ -39,13 +39,13 @@ public class PointActivity extends AppCompatActivity {
         });
 
         mRemainPoint = findViewById(R.id.point_tv_point);
-        stRemain = Integer.toString(totalStrategy.getFareStrategy(5));
+        stRemain = Integer.toString(remain);
         mRemainPoint.setText(stRemain);
 
         mUsingPoint = findViewById(R.id.point_tv_pointUsing);
-        stUsing = Integer.toString(using);
+        stUsing = Integer.toString(totalStrategy.getFareStrategy(5));
         mUsingPoint.setText(stUsing);
-        
+
         mUsing = findViewById(R.id.point_img_using);
         if (usingStatus = true) {
             mUsing.setVisibility(View.VISIBLE);
