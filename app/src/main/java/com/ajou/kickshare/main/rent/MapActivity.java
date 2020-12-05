@@ -14,6 +14,7 @@ import com.ajou.kickshare.R;
 import com.ajou.kickshare.main.DBAccess.AdapterList;
 import com.ajou.kickshare.main.DBAccess.ExternalDBAdapter;
 import com.ajou.kickshare.main.Distribution.KickBoardInfo;
+import com.ajou.kickshare.main.MainActivity;
 import com.ajou.kickshare.main.admin.CheckKickboard;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,6 +28,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -36,6 +38,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private TextView mKickshare;
     private FloatingActionButton mBackBtn;
     static int availableKickshare = 30;
+    private ArrayList<KickBoardInfo> KbIf = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,15 +77,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(startPoint));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(17)); // 확대
 
-        AdapterList abFactory = new AdapterList();
-        ArrayList<KickBoardInfo> kickBoardInfos = new ArrayList<>();
-        ExternalDBAdapter enDB = abFactory.creatEnternalDBAdapter("KickboardList");
-        kickBoardInfos = enDB.getKickBoardList();
+        Intent intent = getIntent();
+        KbIf = (ArrayList<KickBoardInfo>) intent.getSerializableExtra("KickboardList");
 
-        for(int i = 0; i < kickBoardInfos.size(); i++){
-            mMap.addMarker(markerOptions.title("배터리: " + kickBoardInfos.get(i).getBattery()).
-                    position(new LatLng(kickBoardInfos.get(i).getCurrentLocationX(),kickBoardInfos.get(i).getCurrentLocationY())));
+        for(int i = 0; i < KbIf.size(); i++){
+            if(KbIf.get(i).getStatus()) {
+                mMap.addMarker(markerOptions.title("배터리: " + KbIf.get(i).getBattery()).
+                        position(new LatLng(KbIf.get(i).getCurrentLocationX(), KbIf.get(i).getCurrentLocationY())));
+            }
         }
+
         /*
         mMap.addMarker(markerOptions.title("아주대학교 정문").position(new LatLng(37.2800147,127.0436415)));
         mMap.addMarker(markerOptions.title("도서관").position(new LatLng(37.2814443, 127.0441587)));

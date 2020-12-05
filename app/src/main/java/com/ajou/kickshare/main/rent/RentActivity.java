@@ -4,11 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.ajou.kickshare.R;
+import com.ajou.kickshare.main.DBAccess.AdapterList;
+import com.ajou.kickshare.main.DBAccess.ExternalDBAdapter;
+import com.ajou.kickshare.main.Distribution.KickBoardInfo;
+
+import java.util.ArrayList;
 
 public class RentActivity extends AppCompatActivity {
 
@@ -19,6 +25,10 @@ public class RentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rent);
+        AdapterList abFactory = new AdapterList();
+        ExternalDBAdapter enDB = abFactory.creatEnternalDBAdapter("ExternalDB");
+        ArrayList<KickBoardInfo> KickBoardInfos = new ArrayList<KickBoardInfo>();
+        KickBoardInfos = enDB.getKickBoardList();
 
         mPointButton = findViewById(R.id.menu_btn_point);
         mPointButton.setOnClickListener(new View.OnClickListener() {
@@ -30,11 +40,14 @@ public class RentActivity extends AppCompatActivity {
         });
 
         mMapButton = findViewById(R.id.menu_btn_map);
+        final ArrayList<KickBoardInfo> finalKickBoardInfos = KickBoardInfos;
         mMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+                intent.putExtra("KickboardList", finalKickBoardInfos);
                 startActivity(intent);
+                finish();
             }
         });
 

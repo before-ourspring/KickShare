@@ -1,6 +1,8 @@
 package com.ajou.kickshare.main.Distribution;
 
-public class KickBoardInfo {
+import java.io.Serializable;
+
+public class KickBoardInfo implements Serializable {
     private int kickBoardID;
     private boolean status;
     private int battery;
@@ -24,4 +26,6 @@ public class KickBoardInfo {
     public Double getCurrentLocationY() {
         return this.currentLocationY;
     }
+    public void setStatus(boolean status) { this.status = status; }
+    public boolean getStatus() { return this.status; }
 }

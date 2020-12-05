@@ -9,7 +9,7 @@ import java.util.List;
 public class ExternalDBAdapter extends AdapterList{
     private static ArrayList<KickBoardInfo> kbIfArrayList = new ArrayList<>();
     public String getName(){
-        return "KickBoardList";
+        return "ExternalDB";
     }
     public ArrayList<KickBoardInfo> getKickBoardList(){
         ArrayList<Double> kbLocationListX = new ArrayList<>();
