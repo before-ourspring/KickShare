@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -48,6 +49,7 @@ public class QrActivity extends AppCompatActivity {
                     rentSuccessDialog.show();
                     rentSuccessDialog.setCancelable(false);
                     setResult(RESULT_OK,intent);
+                    PointActivity.check = true;
                     MapActivity.availableKickshare--;
                     usingStatus = true;
                 }else {

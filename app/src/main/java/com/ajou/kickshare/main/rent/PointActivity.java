@@ -20,7 +20,8 @@ public class PointActivity extends AppCompatActivity {
     private ImageView mCloseBtn;
     public static ImageView mUsing;
     private TextView mRemainPoint, mUsingPoint;
-    static int remain, using;
+    static int remain = 5000, using = 0;
+    static boolean check = false;
     String stRemain, stUsing;
     private FareCalculator fareCalculator = new FareCalculator();
     private TotalStrategy totalStrategy = (TotalStrategy) fareCalculator.createCalculator("Student");;
@@ -43,7 +44,11 @@ public class PointActivity extends AppCompatActivity {
         mRemainPoint.setText(stRemain);
 
         mUsingPoint = findViewById(R.id.point_tv_pointUsing);
-        stUsing = Integer.toString(totalStrategy.getFareStrategy(5));
+        if(check) {
+            stUsing = Integer.toString(totalStrategy.getFareStrategy(5));
+        }else{
+            stUsing = Integer.toString(using);
+        }
         mUsingPoint.setText(stUsing);
 
         mUsing = findViewById(R.id.point_img_using);
