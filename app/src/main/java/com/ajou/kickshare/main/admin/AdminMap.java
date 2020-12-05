@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class AdminMapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class AdminMap extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private FloatingActionButton mBackBtn;

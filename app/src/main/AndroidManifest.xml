@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".main.admin.CheckUser"></activity>
         <activity android:name=".main.admin.CheckKickboard" />
-        <activity android:name=".main.admin.AdminMapActivity" />
+        <activity android:name=".main.admin.AdminMap" />
         <activity android:name=".main.admin.AdminActivity" />
         <activity android:name=".main.rent.QrActivity" />
         <activity android:name=".main.rent.MapActivity" />

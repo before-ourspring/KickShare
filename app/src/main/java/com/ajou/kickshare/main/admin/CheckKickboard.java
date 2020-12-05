@@ -21,7 +21,7 @@ public class CheckKickboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_kickboard);
 
-        mStationName = findViewById(R.id.event_tv_station);
+        mStationName = findViewById(R.id.check_kickboard_tv_station);
 
         SharedPreferences sharedPreferences = getSharedPreferences("StationName", MODE_PRIVATE);
         String stationName = sharedPreferences.getString("StationName", "no");
