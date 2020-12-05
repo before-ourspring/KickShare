@@ -1,5 +1,6 @@
 package com.ajou.kickshare.main.rent;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,14 +21,22 @@ public class RentActivity extends AppCompatActivity {
 
     private Button mPointButton, mMapButton, mQRButton;
     private ImageView mCloseBtn;
+    private AdapterList abFactory = new AdapterList();
+    private ExternalDBAdapter externalDBAdapter = (ExternalDBAdapter) abFactory.createAdapter("ExternalDB");;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1234 && resultCode == RESULT_OK){
+            ExternalDBAdapter enDB = (com.ajou.kickshare.main.DBAccess.ExternalDBAdapter) data.getSerializableExtra("DB");
+            externalDBAdapter = enDB;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rent);
-        AdapterList abFactory = new AdapterList();
-        final ExternalDBAdapter enDB = (ExternalDBAdapter) abFactory.createAdapter("ExternalDB");
-
         mPointButton = findViewById(R.id.menu_btn_point);
         mPointButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +47,7 @@ public class RentActivity extends AppCompatActivity {
         });
 
         mMapButton = findViewById(R.id.menu_btn_map);
+        ExternalDBAdapter enDB = externalDBAdapter;
         final ArrayList<KickBoardInfo> finalKickBoardInfos = enDB.getKickBoardList();
         mMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,8 +64,10 @@ public class RentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QrActivity.class);
-                intent.putExtra("DB", (Parcelable) enDB);
+                ExternalDBAdapter enDB = externalDBAdapter;
+                intent.putExtra("DB", enDB);
                 startActivity(intent);
+
             }
         });
 
