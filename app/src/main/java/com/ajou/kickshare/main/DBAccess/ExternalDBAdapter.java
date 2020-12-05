@@ -6,11 +6,14 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnternalDBAdapter {
-    private static ArrayList<KickBoardInfo> kbIfArrayList;
+public class ExternalDBAdapter extends AdapterList{
+    private static ArrayList<KickBoardInfo> kbIfArrayList = new ArrayList<>();
+    public String getName(){
+        return "KickBoardList";
+    }
     public ArrayList<KickBoardInfo> getKickBoardList(){
-        List<Double> kbLocationListX = null;
-        List<Double> kbLocationListY = null;
+        ArrayList<Double> kbLocationListX = new ArrayList<>();
+        ArrayList<Double> kbLocationListY = new ArrayList<>();
         kbLocationListX.add(37.2800147);
         kbLocationListY.add(127.0436415);
 
@@ -69,11 +72,10 @@ public class EnternalDBAdapter {
         kbLocationListY.add(127.045055);
 
 
-        for(int i = 0; i < kbLocationListX.size(); i ++){
+        for (int i = 0; i < kbLocationListX.size(); i++) {
             KickBoardInfo kbIf = new KickBoardInfo(i, true, 100, kbLocationListX.get(0), kbLocationListY.get(0));
             kbIfArrayList.add(kbIf);
         }
-
 
         return kbIfArrayList;
     }

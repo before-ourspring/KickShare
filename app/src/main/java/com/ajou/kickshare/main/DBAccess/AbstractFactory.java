@@ -1,5 +1,5 @@
 package com.ajou.kickshare.main.DBAccess;
 
-public interface AbstractFactory {
-    public EnternalDBAdapter getEnternalDBAdapter();
+public abstract class AbstractFactory {
+    public abstract ExternalDBAdapter creatEnternalDBAdapter(String name);
 }

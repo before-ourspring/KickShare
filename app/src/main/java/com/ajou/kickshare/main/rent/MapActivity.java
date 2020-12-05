@@ -11,7 +11,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ajou.kickshare.R;
-import com.ajou.kickshare.main.DBAccess.AbstractFactory;
+import com.ajou.kickshare.main.DBAccess.AdapterList;
+import com.ajou.kickshare.main.DBAccess.ExternalDBAdapter;
 import com.ajou.kickshare.main.Distribution.KickBoardInfo;
 import com.ajou.kickshare.main.admin.CheckKickboard;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -73,10 +74,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(startPoint));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(17)); // 확대
 
-//        AbstractFactory abFactory = null;
-//        ArrayList<KickBoardInfo> kickBoardInfos = new ArrayList<>();
-//        kickBoardInfos = abFactory.getEnternalDBAdapter().getKickBoardList();
+        AdapterList abFactory = new AdapterList();
+        ArrayList<KickBoardInfo> kickBoardInfos = new ArrayList<>();
+        ExternalDBAdapter enDB = abFactory.creatEnternalDBAdapter("KickboardList");
+        kickBoardInfos = enDB.getKickBoardList();
 
+        for(int i = 0; i < kickBoardInfos.size(); i++){
+            mMap.addMarker(markerOptions.title("배터리: " + kickBoardInfos.get(i).getBattery()).
+                    position(new LatLng(kickBoardInfos.get(i).getCurrentLocationX(),kickBoardInfos.get(i).getCurrentLocationY())));
+        }
+        /*
         mMap.addMarker(markerOptions.title("아주대학교 정문").position(new LatLng(37.2800147,127.0436415)));
         mMap.addMarker(markerOptions.title("도서관").position(new LatLng(37.2814443, 127.0441587)));
         mMap.addMarker(markerOptions.title("성호관").position(new LatLng(37.2827246, 127.045162)));
@@ -95,7 +102,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap.addMarker(markerOptions.title("남제관").position(new LatLng(37.2841308, 127.0454224)));
         mMap.addMarker(markerOptions.title("학생회관").position(new LatLng(37.2835771, 127.045156)));
         mMap.addMarker(markerOptions.title("학군단").position(new LatLng(37.285220, 127.045055)));
-
+    */
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
