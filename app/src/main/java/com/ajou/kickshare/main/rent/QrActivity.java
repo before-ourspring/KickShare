@@ -20,7 +20,6 @@ public class QrActivity extends AppCompatActivity {
     private RentSuccessDialog rentSuccessDialog;
     private ExternalDBAdapter dbAdapter;
     private int qrKickBoardID = 0;
-    public static boolean usingStatus = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +50,10 @@ public class QrActivity extends AppCompatActivity {
                     setResult(RESULT_OK,intent);
                     PointActivity.check = true;
                     MapActivity.availableKickshare--;
-                    usingStatus = true;
+                    PointActivity.usingStatus = true;
+                    System.out.println("STATUS TRUE");
                 }else {
-                    usingStatus = false;
-                    Toast.makeText(this, "현재 킥보드가 사용중입니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "이미 사용 중인 킥보드입니다.", Toast.LENGTH_LONG).show();
                     finish();
                 }
 

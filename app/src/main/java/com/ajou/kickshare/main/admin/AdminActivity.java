@@ -12,8 +12,7 @@ import com.ajou.kickshare.R;
 
 public class AdminActivity extends AppCompatActivity {
 
-    private Button mCheckUserBtn, mCheckKickboardBtn, mDistributeBtn;
-    private DistributeDialog distributeDialog;
+    private Button mCheckUserBtn, mCheckKickboardBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,31 +36,5 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        mDistributeBtn = findViewById(R.id.admin_btn_distribute);
-        mDistributeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // context에 getApplicationContext 넣으면 튕김 -> AdminActivity.this로 수정
-                distributeDialog = new DistributeDialog(AdminActivity.this, mOkListnerBtn, mExitListenerBtn);
-                distributeDialog.show();
-                distributeDialog.setCancelable(false);
-            }
-        });
     }
-
-    private View.OnClickListener mOkListnerBtn = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            distributeDialog.dismiss();
-            Toast.makeText(getApplicationContext(), "분배 요청이 완료되었습니다.", Toast.LENGTH_LONG).show();
-        }
-    };
-
-    private View.OnClickListener mExitListenerBtn = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            distributeDialog.dismiss();
-        }
-    };
 }

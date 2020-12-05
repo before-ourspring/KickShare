@@ -48,44 +48,149 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp">
 
-            <TextView
-                android:id="@+id/check_user_tv"
+            <LinearLayout
+                android:id="@+id/check_user_layout_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_marginVertical="5dp"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:text="사용자 ID" />
-
-            <LinearLayout
-                android:layout_toEndOf="@+id/check_user_tv"
-                android:layout_marginHorizontal="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal" >
 
+                <TextView
+                    android:id="@+id/check_user_tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:text="01012345678" />
 
                 <Button
-                    android:id="@+id/check_user_btn_request"
+                        android:id="@+id/check_user_btn_request1"
+                        android:background="@drawable/button_circle"
+                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:text="반환 요청" />
+
+                <Button
+                        android:id="@+id/check_user_btn_stop1"
+                        android:background="@drawable/button_circle"
+                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:text="사용 중지" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/check_user_view_1"
+                android:layout_below="@+id/check_user_layout_1"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <LinearLayout
+                android:layout_below="@+id/check_user_view_1"
+                android:id="@+id/check_user_layout_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/check_user_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:text="01077777777" />
+
+                <Button
+                    android:id="@+id/check_user_btn_request2"
                     android:background="@drawable/button_circle"
                     android:layout_weight="1"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:text="반환 요청" />
 
                 <Button
-                    android:id="@+id/check_user_btn_stop"
+                    android:id="@+id/check_user_btn_stop2"
                     android:background="@drawable/button_circle"
                     android:layout_weight="1"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:text="사용 중지" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/check_user_view_2"
+                android:layout_below="@+id/check_user_layout_2"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <LinearLayout
+                android:layout_below="@+id/check_user_view_2"
+                android:id="@+id/check_user_layout_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/check_user_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:text="01098765432" />
+
+                <Button
+                    android:id="@+id/check_user_btn_request3"
+                    android:background="@drawable/button_circle"
+                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:text="반환 요청" />
+
+                <Button
+                    android:id="@+id/check_user_btn_stop3"
+                    android:background="@drawable/button_circle"
+                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:text="사용 중지" />

@@ -13,8 +13,6 @@ import com.ajou.kickshare.main.DBAccess.ExternalDBAdapter;
 import com.ajou.kickshare.main.FareCalculation.FareCalculator;
 import com.ajou.kickshare.main.FareCalculation.TotalStrategy;
 
-import static com.ajou.kickshare.main.rent.QrActivity.usingStatus;
-
 public class PointActivity extends AppCompatActivity {
 
     private ImageView mCloseBtn;
@@ -22,9 +20,10 @@ public class PointActivity extends AppCompatActivity {
     private TextView mRemainPoint, mUsingPoint;
     static int remain = 5000, using = 0;
     static boolean check = false;
+    static boolean usingStatus = false;
     String stRemain, stUsing;
     private FareCalculator fareCalculator = new FareCalculator();
-    private TotalStrategy totalStrategy = (TotalStrategy) fareCalculator.createCalculator("Student");;
+    private TotalStrategy totalStrategy = (TotalStrategy) fareCalculator.createCalculator("Student");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +50,13 @@ public class PointActivity extends AppCompatActivity {
         }
         mUsingPoint.setText(stUsing);
 
-        mUsing = findViewById(R.id.point_img_using);
-        if (usingStatus = true) {
+        mUsing = (ImageView) findViewById(R.id.point_img_using);
+        if (usingStatus) {
+            System.out.println("Status TRUE");
             mUsing.setVisibility(View.VISIBLE);
         }
         else {
+            System.out.println("Status FALSE");
             mUsing.setVisibility(View.GONE);
         }
     }
