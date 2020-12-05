@@ -3,14 +3,30 @@ package com.ajou.kickshare.main.DBAccess;
 import com.ajou.kickshare.main.Distribution.KickBoardInfo;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExternalDBAdapter extends AdapterList{
+public class ExternalDBAdapter extends AbstractAdapter implements Serializable {
     private static ArrayList<KickBoardInfo> kbIfArrayList = new ArrayList<>();
+
     public String getName(){
         return "ExternalDB";
     }
+
+    public boolean checkKickBoardID(int id){
+        for(int i = 0; i < kbIfArrayList.size(); i++){
+            if(kbIfArrayList.get(i).getKickBoardID() == id){
+                if(kbIfArrayList.get(i).getStatus()){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
     public ArrayList<KickBoardInfo> getKickBoardList(){
         ArrayList<Double> kbLocationListX = new ArrayList<>();
         ArrayList<Double> kbLocationListY = new ArrayList<>();

@@ -17,6 +17,7 @@ public class KickBoardInfo implements Serializable {
         this.currentLocationY = currentLocationY;
     }
 
+    public int getKickBoardID() { return this.kickBoardID; }
     public int getBattery(){
         return this.battery;
     }

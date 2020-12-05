@@ -26,9 +26,7 @@ public class RentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rent);
         AdapterList abFactory = new AdapterList();
-        ExternalDBAdapter enDB = abFactory.creatEnternalDBAdapter("ExternalDB");
-        ArrayList<KickBoardInfo> KickBoardInfos = new ArrayList<KickBoardInfo>();
-        KickBoardInfos = enDB.getKickBoardList();
+        final ExternalDBAdapter enDB = (ExternalDBAdapter) abFactory.createAdapter("ExternalDB");
 
         mPointButton = findViewById(R.id.menu_btn_point);
         mPointButton.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +38,7 @@ public class RentActivity extends AppCompatActivity {
         });
 
         mMapButton = findViewById(R.id.menu_btn_map);
-        final ArrayList<KickBoardInfo> finalKickBoardInfos = KickBoardInfos;
+        final ArrayList<KickBoardInfo> finalKickBoardInfos = enDB.getKickBoardList();
         mMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +54,7 @@ public class RentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QrActivity.class);
+                intent.putExtra("DB", (Parcelable) enDB);
                 startActivity(intent);
             }
         });
