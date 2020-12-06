@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".main.admin.DistributeKickboard">
+
+    <ImageView
+        android:id="@+id/admin_distribute_user_img_back"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:src="@drawable/icon_back" />
+
+    <ImageView
+        android:id="@+id/admin_distribute_user_img_kickshare"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:src="@drawable/icon_kickshare" />
+
+    <ImageView
+        android:id="@+id/admin_distribute_user_img"
+        android:layout_centerInParent="true"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/admin_distribute_user_img_kickshare"
+        android:src="@drawable/img_list" />
+
+    <FrameLayout
+        android:visibility="visible"
+        android:id="@+id/kickboardlist"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_below="@+id/admin_distribute_user_img"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button2" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp">
+
+            <RelativeLayout
+                android:id="@+id/admin_distribute_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="킥보드 ID" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="킥보드 분배 위치" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="배터리" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_0"
+                android:layout_below="@+id/admin_distribute_layout1"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_0"
+                android:id="@+id/check_user_layout_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="0520" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="아주대학교 정문" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="100%" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_1"
+                android:layout_below="@+id/check_user_layout_1"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_1"
+                android:id="@+id/check_user_layout_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="0610" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="도서관" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="79%" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_2"
+                android:layout_below="@+id/check_user_layout_2"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_2"
+                android:id="@+id/check_user_layout_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="0806" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="산학원" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="92%" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_3"
+                android:layout_below="@+id/check_user_layout_3"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_3"
+                android:id="@+id/check_user_layout_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="0829" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="팔달관" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="86%" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_4"
+                android:layout_below="@+id/check_user_layout_4"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_4"
+                android:id="@+id/check_user_layout_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="0525" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="기숙사 식당" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="97%" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_5"
+                android:layout_below="@+id/check_user_layout_5"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_5"
+                android:id="@+id/check_user_layout_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="1221" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="성호관" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="75%" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_6"
+                android:layout_below="@+id/check_user_layout_6"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_6"
+                android:id="@+id/check_user_layout_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="5678" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="성호관" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="93%" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_7"
+                android:layout_below="@+id/check_user_layout_7"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_7"
+                android:id="@+id/check_user_layout_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="1234" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="다산관" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="77%" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/check_user_view_8"
+                android:layout_below="@+id/check_user_layout_8"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:background="#E0E0E0"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/check_user_view_8"
+                android:id="@+id/check_user_layout_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="1231" />
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="연암관" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="83%" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <Button
+        android:background="@drawable/button_circle"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/kickboardlist"
+        android:id="@+id/admin_btn_request"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:text="분배 요청" />
+
+        <TextView
+            android:layout_below="@+id/admin_btn_request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="      "
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+</ScrollView>

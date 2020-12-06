@@ -57,6 +57,18 @@
             android:text="킥보드 상태 확인" />
 
         <Button
+            android:id="@+id/admin_btn_distribute"
+            android:background="@drawable/button_circle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:paddingHorizontal="20dp"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text="킥보드 분배" />
+
+        <Button
             android:id="@+id/admin_btn_setting"
             android:background="@drawable/button_circle"
             android:layout_width="200dp"

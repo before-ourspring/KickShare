@@ -12,7 +12,7 @@ import com.ajou.kickshare.R;
 
 public class AdminActivity extends AppCompatActivity {
 
-    private Button mCheckUserBtn, mCheckKickboardBtn;
+    private Button mCheckUserBtn, mCheckKickboardBtn, mDistributeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,15 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AdminMap.class);
+                startActivity(intent);
+            }
+        });
+
+        mDistributeBtn = findViewById(R.id.admin_btn_distribute);
+        mDistributeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), DistributeKickboard.class);
                 startActivity(intent);
             }
         });

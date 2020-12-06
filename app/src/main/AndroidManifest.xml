@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.admin.CheckUser"></activity>
+        <activity android:name=".main.admin.DistributeKickboard"></activity>
+        <activity android:name=".main.admin.CheckUser" />
         <activity android:name=".main.admin.CheckKickboard" />
         <activity android:name=".main.admin.AdminMap" />
         <activity android:name=".main.admin.AdminActivity" />

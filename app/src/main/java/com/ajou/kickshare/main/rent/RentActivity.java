@@ -55,7 +55,6 @@ public class RentActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                 intent.putExtra("KickboardList", finalKickBoardInfos);
                 startActivity(intent);
-                finish();
             }
         });
 
