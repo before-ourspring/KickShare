@@ -10,6 +10,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ajou.kickshare.R;
+import com.ajou.kickshare.main.Distribution.DistributionPlanner;
+import com.ajou.kickshare.main.Distribution.KickBoardStation;
+
+import java.util.ArrayList;
 
 public class DistributeKickboard extends AppCompatActivity {
 
@@ -17,6 +21,7 @@ public class DistributeKickboard extends AppCompatActivity {
     private Button mDistributeBtn;
     private DistributeDialog distributeDialog;
     private FrameLayout frameLayout;
+    private ArrayList<KickBoardStation> kickBoardStations = new ArrayList<>();
     static boolean kbListDistribute = true;
 
     @Override
@@ -31,6 +36,9 @@ public class DistributeKickboard extends AppCompatActivity {
                 finish();
             }
         });
+
+        DistributionPlanner dbP = new DistributionPlanner();
+        kickBoardStations = dbP.DistributionPlanner();
 
         mDistributeBtn = findViewById(R.id.admin_btn_request);
         mDistributeBtn.setOnClickListener(new View.OnClickListener() {

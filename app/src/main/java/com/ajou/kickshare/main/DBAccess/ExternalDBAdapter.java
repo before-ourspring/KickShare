@@ -1,6 +1,7 @@
 package com.ajou.kickshare.main.DBAccess;
 
 import com.ajou.kickshare.main.Distribution.KickBoardInfo;
+import com.ajou.kickshare.main.Distribution.KickBoardStation;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
@@ -26,6 +27,10 @@ public class ExternalDBAdapter extends AbstractAdapter implements Serializable {
             }
         }
         return false;
+    }
+
+    public ArrayList<KickBoardStation> getHourlyLocation(int hour){
+        return null;
     }
 
     public ArrayList<KickBoardInfo> getKickBoardList(){
