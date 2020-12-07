@@ -21,6 +21,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import static com.ajou.kickshare.main.admin.DistributeKickboard.kbListDistribute;
+
 public class AdminMap extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -57,24 +59,50 @@ public class AdminMap extends AppCompatActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(startPoint));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(17)); // 확대
 
-        mMap.addMarker(markerOptions.title("아주대학교 정문").position(new LatLng(37.2800147,127.0436415)));
-        mMap.addMarker(markerOptions.title("도서관").position(new LatLng(37.2814443, 127.0441587)));
-        mMap.addMarker(markerOptions.title("성호관").position(new LatLng(37.2827246, 127.045162)));
-        mMap.addMarker(markerOptions.title("팔달관").position(new LatLng(37.2843748, 127.0443452)));
-        mMap.addMarker(markerOptions.title("산학원").position(new LatLng(37.2863922, 127.045851)));
-        mMap.addMarker(markerOptions.title("다산관").position(new LatLng(37.2829729, 127.0474774)));
-        mMap.addMarker(markerOptions.title("원천관").position(new LatLng(37.2829669, 127.0434387)));
-        mMap.addMarker(markerOptions.title("동관").position(new LatLng(37.2838055, 127.0433987)));
-        mMap.addMarker(markerOptions.title("서관").position(new LatLng(37.2836885, 127.0426417)));
-        mMap.addMarker(markerOptions.title("율곡관").position(new LatLng(37.2822024, 127.0463244)));
-        mMap.addMarker(markerOptions.title("연암관").position(new LatLng(37.2821187, 127.0476976)));
-        mMap.addMarker(markerOptions.title("송재관").position(new LatLng(37.2808444, 127.0470122)));
-        mMap.addMarker(markerOptions.title("체육관").position(new LatLng(37.279969, 127.0451841)));
-        mMap.addMarker(markerOptions.title("아주대 병원").position(new LatLng(37.279430, 127.047742)));
-        mMap.addMarker(markerOptions.title("기숙사 식당").position(new LatLng(37.284719, 127.045536)));
-        mMap.addMarker(markerOptions.title("남제관").position(new LatLng(37.2841308, 127.0454224)));
-        mMap.addMarker(markerOptions.title("학생회관").position(new LatLng(37.2835771, 127.045156)));
-        mMap.addMarker(markerOptions.title("학군단").position(new LatLng(37.285220, 127.045055)));
+//        mMap.addMarker(markerOptions.title("아주대학교 정문").position(new LatLng(37.2800147,127.0436415)));
+//        mMap.addMarker(markerOptions.title("도서관").position(new LatLng(37.2814443, 127.0441587)));
+//        mMap.addMarker(markerOptions.title("성호관").position(new LatLng(37.2827246, 127.045162)));
+//        mMap.addMarker(markerOptions.title("팔달관").position(new LatLng(37.2843748, 127.0443452)));
+//        mMap.addMarker(markerOptions.title("산학원").position(new LatLng(37.2863922, 127.045851)));
+//        mMap.addMarker(markerOptions.title("다산관").position(new LatLng(37.2829729, 127.0474774)));
+//        mMap.addMarker(markerOptions.title("원천관").position(new LatLng(37.2829669, 127.0434387)));
+//        mMap.addMarker(markerOptions.title("기숙사 식당").position(new LatLng(37.284719, 127.045536)));
+
+//        mMap.addMarker(markerOptions.title("동관").position(new LatLng(37.2838055, 127.0433987)));
+//        mMap.addMarker(markerOptions.title("서관").position(new LatLng(37.2836885, 127.0426417)));
+//        mMap.addMarker(markerOptions.title("율곡관").position(new LatLng(37.2822024, 127.0463244)));
+//        mMap.addMarker(markerOptions.title("연암관").position(new LatLng(37.2821187, 127.0476976)));
+//        mMap.addMarker(markerOptions.title("송재관").position(new LatLng(37.2808444, 127.0470122)));
+//        mMap.addMarker(markerOptions.title("체육관").position(new LatLng(37.279969, 127.0451841)));
+//        mMap.addMarker(markerOptions.title("아주대 병원").position(new LatLng(37.279430, 127.047742)));
+//        mMap.addMarker(markerOptions.title("남제관").position(new LatLng(37.2841308, 127.0454224)));
+//        mMap.addMarker(markerOptions.title("학생회관").position(new LatLng(37.2835771, 127.045156)));
+//        mMap.addMarker(markerOptions.title("학군단").position(new LatLng(37.285220, 127.045055)));
+
+        if (kbListDistribute) {
+            mMap.addMarker(markerOptions.title("동관").position(new LatLng(37.2838055, 127.0433987)));
+            mMap.addMarker(markerOptions.title("서관").position(new LatLng(37.2836885, 127.0426417)));
+            mMap.addMarker(markerOptions.title("율곡관").position(new LatLng(37.2822024, 127.0463244)));
+            mMap.addMarker(markerOptions.title("연암관").position(new LatLng(37.2821187, 127.0476976)));
+            mMap.addMarker(markerOptions.title("송재관").position(new LatLng(37.2808444, 127.0470122)));
+            mMap.addMarker(markerOptions.title("체육관").position(new LatLng(37.279969, 127.0451841)));
+            mMap.addMarker(markerOptions.title("아주대 병원").position(new LatLng(37.279430, 127.047742)));
+            mMap.addMarker(markerOptions.title("남제관").position(new LatLng(37.2841308, 127.0454224)));
+            mMap.addMarker(markerOptions.title("학생회관").position(new LatLng(37.2835771, 127.045156)));
+            mMap.addMarker(markerOptions.title("학군단").position(new LatLng(37.285220, 127.045055)));
+
+        }
+        else {
+            mMap.addMarker(markerOptions.title("아주대학교 정문").position(new LatLng(37.2800147,127.0436415)));
+            mMap.addMarker(markerOptions.title("도서관").position(new LatLng(37.2814443, 127.0441587)));
+            mMap.addMarker(markerOptions.title("성호관").position(new LatLng(37.2827246, 127.045162)));
+            mMap.addMarker(markerOptions.title("팔달관").position(new LatLng(37.2843748, 127.0443452)));
+            mMap.addMarker(markerOptions.title("산학원").position(new LatLng(37.2863922, 127.045851)));
+            mMap.addMarker(markerOptions.title("다산관").position(new LatLng(37.2829729, 127.0474774)));
+            mMap.addMarker(markerOptions.title("원천관").position(new LatLng(37.2829669, 127.0434387)));
+            mMap.addMarker(markerOptions.title("기숙사 식당").position(new LatLng(37.284719, 127.045536)));
+        }
+
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override

@@ -37,9 +37,6 @@ public class DistributeKickboard extends AppCompatActivity {
             }
         });
 
-        DistributionPlanner dbP = new DistributionPlanner();
-        kickBoardStations = dbP.DistributionPlanner();
-
         mDistributeBtn = findViewById(R.id.admin_btn_request);
         mDistributeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
