@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.ajou.kickshare.R;
 import com.ajou.kickshare.main.DBAccess.AdapterList;
@@ -23,6 +25,9 @@ public class RentActivity extends AppCompatActivity {
     private ImageView mCloseBtn;
     private AdapterList abFactory = new AdapterList();
     private ExternalDBAdapter externalDBAdapter = (ExternalDBAdapter) abFactory.createAdapter("ExternalDBAdaptor");
+    static int remain = 5000;
+    static boolean chargeCancel = false;
+    private long time= 0;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

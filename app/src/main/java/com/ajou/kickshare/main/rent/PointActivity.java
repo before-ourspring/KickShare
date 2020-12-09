@@ -21,6 +21,9 @@ import com.ajou.kickshare.main.FareCalculation.TotalStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ajou.kickshare.main.rent.RentActivity.chargeCancel;
+import static com.ajou.kickshare.main.rent.RentActivity.remain;
+
 public class PointActivity extends AppCompatActivity {
 
     private Button mChargeBtn;
@@ -28,7 +31,10 @@ public class PointActivity extends AppCompatActivity {
     private ImageView mCloseBtn;
     public static ImageView mUsing;
     private TextView mRemainPoint, mUsingPoint;
-    static int remain = 5000, using = 0;
+    static int using = 0;
+
+    ChargeActivity chargeActivity = (ChargeActivity) ChargeActivity._ChargeActivity;
+
     static boolean check = false;
     static boolean usingStatus = false;
     String stRemain, stUsing;
@@ -39,6 +45,9 @@ public class PointActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point);
+
+        System.out.println(chargeCancel);
+        if (chargeCancel) chargeActivity.finish();
 
         final List<String> selectedItems = new ArrayList<String>();
 
@@ -52,7 +61,7 @@ public class PointActivity extends AppCompatActivity {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(PointActivity.this);
                 dialog.setTitle("충전할 포인트를 선택해주세요.")
                         .setSingleChoiceItems(items,0
-                        ,new DialogInterface.OnClickListener() {
+                                ,new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         selectedIndex[0] = i;
@@ -61,15 +70,13 @@ public class PointActivity extends AppCompatActivity {
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PointActivity.this, items[selectedIndex[0]], Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(PointActivity.this, items[selectedIndex[0]], Toast.LENGTH_SHORT).show();
                                 chargePoint = Integer.parseInt(items[selectedIndex[0]]);
                                 System.out.println(chargePoint);
 
-
-
-
                                 Intent intent = new Intent(getApplicationContext(), ChargeActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                         }).create().show();
             }

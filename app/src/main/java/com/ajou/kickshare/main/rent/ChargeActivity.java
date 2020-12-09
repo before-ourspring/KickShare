@@ -3,6 +3,8 @@ package com.ajou.kickshare.main.rent;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,18 +29,23 @@ import kr.co.bootpay.model.BootExtra;
 import kr.co.bootpay.model.BootUser;
 
 import static com.ajou.kickshare.main.rent.PointActivity.chargePoint;
+import static com.ajou.kickshare.main.rent.RentActivity.remain;
+import static com.ajou.kickshare.main.rent.RentActivity.chargeCancel;
 
 public class ChargeActivity extends AppCompatActivity {
 
     private int stuck = 10;
     private WebView mWebView;
     private WebSettings mWebSettings;
-    private boolean mChargeCancel = false;
+    public static Activity _ChargeActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charge);
+
+        _ChargeActivity = ChargeActivity.this;
+        chargeCancel = true;
 
         // 웹뷰 시작
         mWebView = (WebView) findViewById(R.id.webView);
@@ -65,7 +72,7 @@ public class ChargeActivity extends AppCompatActivity {
 
     public void onClick_request(View v) {
         // 결제호출
-        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
+        BootUser bootUser = new BootUser().setPhone("");
         BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
 
         Bootpay.init(getFragmentManager())
@@ -123,27 +130,15 @@ public class ChargeActivity extends AppCompatActivity {
                     @Override
                     public void onClose(String data) {
                         Log.d("close", "close");
-                        System.out.println("결제 창 닫힘");
-                        mChargeCancel = true;
-                        finish();
+//                        chargeCancel = true;
+                        System.out.println("1결제창닫힘 " + remain);
+                        remain += chargePoint;
+                        System.out.println("2결제창닫힘 " + remain);
+
+                        Intent intent = new Intent(ChargeActivity.this, PointActivity.class);
+                        startActivity(intent);
                     }
                 })
                 .request();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        System.out.println("onResume");
-        if (mChargeCancel) finish();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-        System.out.println("onRestart");
-        if (mChargeCancel) finish();
     }
 }
