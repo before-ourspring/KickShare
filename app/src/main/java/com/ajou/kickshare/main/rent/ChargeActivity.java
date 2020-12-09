@@ -30,7 +30,6 @@ import kr.co.bootpay.model.BootUser;
 
 import static com.ajou.kickshare.main.rent.PointActivity.chargePoint;
 import static com.ajou.kickshare.main.rent.RentActivity.remain;
-import static com.ajou.kickshare.main.rent.RentActivity.chargeCancel;
 
 public class ChargeActivity extends AppCompatActivity {
 
@@ -44,8 +43,6 @@ public class ChargeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charge);
 
-        _ChargeActivity = ChargeActivity.this;
-        chargeCancel = true;
 
         // 웹뷰 시작
         mWebView = (WebView) findViewById(R.id.webView);
@@ -77,8 +74,8 @@ public class ChargeActivity extends AppCompatActivity {
 
         Bootpay.init(getFragmentManager())
                 .setApplicationId("59a4d326396fa607cbe75de5") // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.INICIS) // 결제할 PG 사
-                .setMethod(Method.PHONE) // 결제수단
+                .setPG(PG.KCP) // 결제할 PG 사
+                .setMethod(Method.NPAY) // 결제수단
                 .setContext(this)
                 .setBootUser(bootUser)
                 .setBootExtra(bootExtra)
@@ -89,56 +86,55 @@ public class ChargeActivity extends AppCompatActivity {
                 .setPrice(chargePoint) // 결제할 금액
                 .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .onConfirm(new ConfirmListener() {
+                .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
-                    public void onConfirm(String data) { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
-                        if (0 < stuck) Bootpay.confirm(data); // 재고가 있을 경우.
+                    public void onConfirm(@Nullable String message) {
+
+                        if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
                         else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우
-                        Log.d("confirm", data);
-                        System.out.println("결제 진행");
+                        Log.d("confirm", message);
                     }
                 })
                 .onDone(new DoneListener() { // 결제완료시 호출, 아이템 지급 등 데이터 동기화 로직을 수행합니다
                     @Override
-                    public void onDone(String data) {
-                        Log.d("done", data);
-                        System.out.println("결제 완료");
+                    public void onDone(@Nullable String message) {
+                        Log.d("done", message);
                     }
                 })
                 .onReady(new ReadyListener() { // 가상계좌 입금 계좌번호가 발급되면 호출되는 함수입니다.
                     @Override
-                    public void onReady(String data) {
-                        Log.d("ready", data);
-                        System.out.println("가상 계좌 입금 계좌번호 발급");
+                    public void onReady(@Nullable String message) {
+                        Log.d("ready", message);
                     }
                 })
                 .onCancel(new CancelListener() { // 결제 취소시 호출
                     @Override
-                    public void onCancel(String data) {
-                        Log.d("cancel", data);
-                        System.out.println("결제 취소");
+                    public void onCancel(@Nullable String message) {
+
+                        Log.d("cancel", message);
                     }
                 })
                 .onError(new ErrorListener() { // 에러가 났을때 호출되는 부분
                     @Override
-                    public void onError(String data) {
-                        Log.d("error", data);
-                        System.out.println("에러");
+                    public void onError(@Nullable String message) {
+                        Log.d("error", message);
                     }
                 })
-                .onClose(new CloseListener() { // 결제창이 닫힐때 실행되는 부분
-                    @Override
-                    public void onClose(String data) {
-                        Log.d("close", "close");
-//                        chargeCancel = true;
-                        System.out.println("1결제창닫힘 " + remain);
-                        remain += chargePoint;
-                        System.out.println("2결제창닫힘 " + remain);
+                .onClose(
+                        new CloseListener() { //결제창이 닫힐때 실행되는 부분
+                            @Override
+                            public void onClose(String message) {
+                                Log.d("close", "close");
 
-                        Intent intent = new Intent(ChargeActivity.this, PointActivity.class);
-                        startActivity(intent);
-                    }
-                })
+                                System.out.println("1결제창닫힘 " + remain);
+                                remain += chargePoint;
+                                System.out.println("2결제창닫힘 " + remain);
+
+                                Intent intent = new Intent(getApplicationContext(), ChargeSuccessActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
                 .request();
     }
 }

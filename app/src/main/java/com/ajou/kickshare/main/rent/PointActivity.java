@@ -55,7 +55,7 @@ public class PointActivity extends AppCompatActivity {
         mChargeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String[] items = new String[] {"5000", "10000", "15000", "20000", "25000", "30000"};
+                final String[] items = new String[] {"1000", "5000", "10000", "15000", "20000", "25000", "30000"};
                 final int[] selectedIndex = {0};
 
                 AlertDialog.Builder dialog = new AlertDialog.Builder(PointActivity.this);

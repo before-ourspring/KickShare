@@ -3,6 +3,7 @@ package com.ajou.kickshare.main.rent;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -27,7 +28,8 @@ public class RentActivity extends AppCompatActivity {
     private ExternalDBAdapter externalDBAdapter = (ExternalDBAdapter) abFactory.createAdapter("ExternalDBAdaptor");
     static int remain = 5000;
     static boolean chargeCancel = false;
-    private long time= 0;
+
+    public static Activity _RentActivity;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -42,6 +44,9 @@ public class RentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rent);
+
+        _RentActivity = RentActivity.this;
+
         mPointButton = findViewById(R.id.menu_btn_point);
         mPointButton.setOnClickListener(new View.OnClickListener() {
             @Override

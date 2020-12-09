@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.rent.ChargeSuccessActivity">
+
+    <ImageView
+        android:id="@+id/charge_success_img_back"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:src="@drawable/icon_close" />
+
+    <ImageView
+        android:id="@+id/charge_success_img_kickshare"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:src="@drawable/icon_kickshare" />
+
+    <ImageView
+        android:id="@+id/charge_success_img_login"
+        android:layout_centerInParent="true"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/charge_success_img_kickshare"
+        android:src="@drawable/img_charge" />
+
+    <FrameLayout
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/charge_success_img_login"
+        android:background="@drawable/button2" >
+
+        <RelativeLayout
+            android:id="@+id/charge_success_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/charge_success_pointLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:text="충전 포인트 : " />
+
+            <TextView
+                android:id="@+id/charge_success_tv_point"
+                android:layout_toEndOf="@id/charge_success_pointLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:text="3000" />
+
+            <TextView
+                android:layout_below="@+id/charge_success_tv_point"
+                android:id="@+id/charge_success_tv_pointUsingLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:text="잔여 포인트 : " />
+
+            <TextView
+                android:id="@+id/charge_success_tv_pointRemain"
+                android:layout_below="@+id/charge_success_tv_point"
+                android:layout_toEndOf="@id/charge_success_pointLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:text="3000" />
+
+
+
+            <LinearLayout
+                android:layout_below="@+id/charge_success_tv_pointRemain"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+
+                <Button
+                    android:id="@+id/charge_success_btn_check"
+                    android:background="@drawable/button_circle"
+                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:text="포인트 확인" />
+
+                <Button
+                    android:id="@+id/charge_success_btn_home"
+                    android:background="@drawable/button_circle"
+                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:text="홈으로 가기" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>
