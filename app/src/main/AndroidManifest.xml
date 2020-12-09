@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_main_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.admin.DistributeKickboard"/>
+        <activity android:name=".main.rent.ChargeActivity"></activity>
+        <activity android:name=".main.admin.DistributeKickboard" />
         <activity android:name=".main.admin.CheckUser" />
         <activity android:name=".main.admin.CheckKickboard" />
         <activity android:name=".main.admin.AdminMap" />

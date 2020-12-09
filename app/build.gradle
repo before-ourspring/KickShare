@@ -20,6 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -35,4 +40,6 @@ dependencies {
     // qr 코드
     implementation 'com.journeyapps:zxing-android-embedded:4.0.0'
     implementation 'com.google.zxing:core:3.3.0'
+    // 결제모듈
+    implementation 'com.github.bootpay:client_android_java:3.3.63'
 }
