@@ -5,13 +5,14 @@
 2020학년도 2학기 도메인분석및설계 과목에서 진행된 프로젝트입니다.
 
 ## 1. Motivation
-보통 대학교 캠퍼스는 매우 넓고 대중교통도 원활하게 지원되고 있지 않다. 따라서 전동 킥보드 공유 서비스를 대학교에 적용시킴으로써 수업과 수업사이의 짧은 시간내에 넓은 캠퍼스를 보다 편하게 이동할 수 있을 것이며 학교 외부 인근 주변시설도 편하게 이용할 수 있을 것이다.
+보통 대학교 캠퍼스는 매우 넓고 대중교통도 원활하게 지원되고 있지 않다. 따라서 전동 킥보드 공유 서비스를 대학교에 적용시킴으로써 수업과 수업사이의 짧은 시간내에 넓은 캠퍼스를 보다 편하게 이동할 수 있을 것이며 학교 외부 인근 주변시설도 편하게 이용할 수 있을 것이다. 
 
 ## 2. Use Case Diagram
 ![uc다이어그램](https://user-images.githubusercontent.com/55920132/101247206-71755a80-375b-11eb-9c2d-57006b2ab59e.png)
 
 ## 3. Main Display
-<img src="https://user-images.githubusercontent.com/55920132/101247513-6b807900-375d-11eb-9e01-a03791b6eb28.png"  width="155" height="280"><img src="https://user-images.githubusercontent.com/55920132/101247558-923eaf80-375d-11eb-8039-ab629c76547d.png"  width="155" height="280"><img src="https://user-images.githubusercontent.com/55920132/101247530-776c3b00-375d-11eb-82e9-4eda97ce5198.png"  width="155" height="280"><img src="https://user-images.githubusercontent.com/55920132/101247540-82bf6680-375d-11eb-9878-e5bd0304f355.png"  width="155" height="280"><img src="https://user-images.githubusercontent.com/75024316/102873902-0fb82e80-4485-11eb-8962-2ba91616c61c.png" width="155" height="280"><img src="https://user-images.githubusercontent.com/75024316/102874002-38402880-4485-11eb-9e8a-46dfcdda6560.png" width="155" height="280">
+<img src="https://user-images.githubusercontent.com/75024316/102875787-a1c13680-4487-11eb-9ea8-7602cb826036.png"  width="160" height="280"><img src="https://user-images.githubusercontent.com/75024316/102875848-b6053380-4487-11eb-8d32-d61792be81be.png"  width="160" height="280"><img src="https://user-images.githubusercontent.com/75024316/102875873-bdc4d800-4487-11eb-84d9-3df4801913bc.png"  width="160" height="280"><img src="https://user-images.githubusercontent.com/75024316/102875855-b7cef700-4487-11eb-9479-a9e5b51223af.png"  width="160" height="280"><img src="https://user-images.githubusercontent.com/75024316/102876064-0da39f00-4488-11eb-9297-877a68a57ad5.png" width="160" height="280"><img src="https://user-images.githubusercontent.com/75024316/102875890-c5847c80-4487-11eb-892c-778e4efa653b.png" width="160" height="280"><img src="https://user-images.githubusercontent.com/75024316/102875952-dcc36a00-4487-11eb-98e5-ab87ef830236.png" width="160" height="280"><img src="https://user-images.githubusercontent.com/75024316/102875928-d2a16b80-4487-11eb-840f-acfc7a4bb2c1.png" width="160" height="280">
+
 
 ## 4. Implementation - UI Layer
 ### initial package
@@ -19,7 +20,7 @@
 * LoginActivity.class : 서비스 사용을 위해 로그인을 한다.
   * 관리자 모드 로그인은 01000000000로 한다.
   
-## 4-1. Use Case 1 : Rent Kickboard & Use Case 3 : Charge Point & Use Case 5 : Calculate Fare
+## 4-1. Use Case 1 : Rent Kickboard / Use Case 3 : Charge Point / Use Case 5 : Calculate Fare
 ### main package
 * MainActivity.class : 사용자가 이용할 서비스 메뉴를 선택할 수 있다.
 ### main의 rent package
@@ -51,6 +52,7 @@
   * FareCalculator, FareStrategyFactory, OutsiderStrategy, SchoolStaffStrategy, StudentStrategy, TotalStrategy
     
 ## 6. 기타
+* 개발 환경 : Android Studio, Java
 * Compile SDK Version : 30 (API 30: Android 10.0+ (R))
 * minSdkVersion : 24
 * 지도 : Google Map API 이용
